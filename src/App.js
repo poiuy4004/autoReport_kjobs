@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Cover from "./Cover";
+import Intro from "./Intro";
+import Logbook from "./Logbook";
 
 function App() {
+  const [title, setTitle] = useState("주제 선택")
+  const [count, setCount] = useState(0);
+  const [date, setDate] = useState("2024-00-00")
+  const [day, setDay] = useState("토")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Cover title={title} setTitle={setTitle} count={count} setCount={setCount} date={date} setDate={setDate} day={day} setDay={setDay} />
+      <Intro title={title} date={date} day={day} count={count} />
+      <Logbook title={title} />
     </div>
   );
 }
-
 export default App;
