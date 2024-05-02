@@ -103,9 +103,16 @@ function Cover({count, setCount, title, setTitle, date, setDate, day, setDay}){
           <Title2><Title2Input value={count} onChange={e=>setCount(e.target.value)} />회차 운영결과 보고서</Title2>
           <Title3 value={title} onChange={e=>setTitle(e.target.value)}>
             <option>주제 선택</option>
-            <option>마음의 힘 기르기</option>
-            <option>멋진 이력서, 자기소개서 작성하기</option>
             <option>구직스트레스 다루기</option>
+            <option>근로기준법</option>
+            <option>취업을 위한 나 이해하기</option>
+            <option>이력서, 자기소개서 작성하기</option>
+            <option>마음의 힘 기르기</option>
+            <option>잘 살아온 내 인생, 앞으로는?</option>
+            <option>직장인을 위한 대화의 기술</option>
+            <option>합격을 부르는 면접전략</option>
+            <option>DISC 행동유형진단으로 알아본 자기이해</option>
+            <option>MBTI를 통한 스마트한 직장 적응방법</option>
           </Title3>
         </TitleContainer>
         <DateConteiner>

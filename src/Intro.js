@@ -180,38 +180,42 @@ function Intro({title, date, day, count}){
       </ContentContainer>
       <SubTitle>나. 프로그램 운영</SubTitle>
       {title==="구직스트레스 다루기"
-      ?(
+      ?( 
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>최근 나의 감정에 대해 생각, 공유, 확인하고 내가 원하는 감정이 무엇인지 찾아볼 수 있도록 함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>현재 나의 스트레스에 대해 이야기하며 나타나는 반응과 현상에 대해 공유, 인터뷰를 통해 자신의 스트레스에 대해 구체화할 수 있도록 진행함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>진단지를 통해 스트레스 진단, 스트레스 대응 방식 객관적으로 확인함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>소그룹 활동으로 자신의 스트레스 대응 방식과 스트레스 해소법에 관한 이야기 나눔.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>스트레스 완화에 도움이 되는 추천하는 해소법에 대해 알아보고 함께 실습함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="근로기준법"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>당일 교육 프로그램의 진행방식에 대한 개괄적 설명 후, 참여자들과의 아이스브레이킹을 통해 라포를 형성하였음.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>강사는 참여자들의 동기유발을 위해 교안을 질문, 문답 형식으로 제작하여 강의를 진행하였고 의사소통을 위해 채팅방을 활용하였음.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>근로기준법 적용 범위를, 상시 근로자 수에 따른 적용 규정 등을 설명하였고, 근로계약의 중요성과 올바른 근로계약서 작성 방법에 대해 안내함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>법정 임금과 근로시간 및 휴게시간, 휴일, 휴가 등의 근로조건을 상세하게 설명하는 시간을 가짐.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>직장 내 괴롭힘 사례 예시, 근로계약 종료 사유에 대해 알아봄.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
-      : title==="취업을 위한, 나 이해하기"
+      : title==="취업을 위한 나 이해하기"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>유함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="이력서, 자기소개서 작성하기"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>유함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
@@ -227,45 +231,45 @@ function Intro({title, date, day, count}){
       : title==="잘 살아온 내 인생, 앞으로는?"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="직장인을 위한 대화의 기술"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="합격을 부르는 면접전략"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="DISC 행동유형진단으로 알아본 자기이해"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="MBTI를 통한 스마트한 직장 적응방법"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
