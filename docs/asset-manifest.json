@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/autoReport_kjobs/static/css/main.6bf50745.css",
-    "main.js": "/autoReport_kjobs/static/js/main.cffc5b26.js",
+    "main.js": "/autoReport_kjobs/static/js/main.a0df6cce.js",
     "static/media/logo.png": "/autoReport_kjobs/static/media/logo.5747430badfa5f63070a.png",
     "index.html": "/autoReport_kjobs/index.html",
     "main.6bf50745.css.map": "/autoReport_kjobs/static/css/main.6bf50745.css.map",
-    "main.cffc5b26.js.map": "/autoReport_kjobs/static/js/main.cffc5b26.js.map"
+    "main.a0df6cce.js.map": "/autoReport_kjobs/static/js/main.a0df6cce.js.map"
   },
   "entrypoints": [
     "static/css/main.6bf50745.css",
-    "static/js/main.cffc5b26.js"
+    "static/js/main.a0df6cce.js"
   ]
 }

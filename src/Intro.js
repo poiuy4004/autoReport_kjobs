@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.article`
@@ -63,6 +63,9 @@ const PersonBox = styled.td`
     else{return "&>*{background-color: red;}"};
   }}
 `
+const TotalPersonBox = styled(PersonBox)`
+  &>*{background-color: white;}
+`
 const PersonBox2 = styled(PersonBox)`
   &>*{background-color: white;}
 `
@@ -74,8 +77,18 @@ const Person = styled.input`
   border: solid 1px black;
   color: ${props=>props.value===99? "red" : "black"};
 `
+const TotalPerson = styled(Person)`
+  color: black;
+`
 const Person2 = styled(Person)`
   color: black;
+`
+const TotalCompletion = styled.input`
+  width: 22.02px;
+  font-size: 11px;
+  text-align: center;
+  border: none;
+  ${props=>Number(props.value)===0&&"color: red; font-weight: 700;"}
 `
 const CharacterBox = styled.div`
   display: flex;
@@ -102,9 +115,25 @@ const NumValue = styled.input`
 `
 
 function Intro({title, date, day, count}){
+  const [totalParticipants, setTotalParticipants] = useState(0)
   const [participants, setParticipants] = useState(0)
+  const [totalCompletion, setTotalCompletion] = useState(0)
   const [completion, setCompletion] = useState(0)
   const [consultant, setConsultant] = useState("장용민")
+  const [totalPerson, setTotalPerson] = useState({
+    "20th": 99,
+    "29th": 99,
+    "39th": 99,
+    "49th": 99,
+    "59th": 99,
+    "60th": 99,
+    "male": 99,
+    "female": 99,
+    "ordinary": 99,
+    "fail": 99,
+    "origin": 99,
+    "jump": 99,
+  })
   const [person, setPerson] = useState({
     "20th": 99,
     "29th": 99,
@@ -119,6 +148,9 @@ function Intro({title, date, day, count}){
     "origin": 99,
     "jump": 99,
   })
+  useEffect(()=>{
+    setTotalParticipants(Number(totalPerson["20th"])+Number(totalPerson["29th"])+Number(totalPerson["39th"])+Number(totalPerson["49th"])+Number(totalPerson["59th"])+Number(totalPerson["60th"]))
+  },[totalPerson])
   return(
     <Container>
       <Title>1. 운영 개요</Title>
@@ -146,6 +178,19 @@ function Intro({title, date, day, count}){
           </tr>
         </thead>
         <tbody>
+          {count>1&&
+          <tr>
+            <td headers="회차">{Number(count)===2? "1" : "1~"+(count-1)}회차</td><td headers="진행자">-</td><td headers="참가인원">{totalParticipants}</td><td headers="수료인원"><TotalCompletion value={totalCompletion} onChange={e=>setTotalCompletion(e.target.value)} /></td><td headers="중도탈락">{totalParticipants-totalCompletion}</td>
+            <TotalPersonBox colSpan="6">
+              <TotalPerson value={totalPerson["20th"]} onChange={e=>setTotalPerson({...totalPerson, "20th": e.target.value})} />
+              <TotalPerson value={totalPerson["29th"]} onChange={e=>setTotalPerson({...totalPerson, "29th": e.target.value})} />
+              <TotalPerson value={totalPerson["39th"]} onChange={e=>setTotalPerson({...totalPerson, "39th": e.target.value})} />
+              <TotalPerson value={totalPerson["49th"]} onChange={e=>setTotalPerson({...totalPerson, "49th": e.target.value})} />
+              <TotalPerson value={totalPerson["59th"]} onChange={e=>setTotalPerson({...totalPerson, "59th": e.target.value})} />
+              <TotalPerson value={totalPerson["60th"]} onChange={e=>setTotalPerson({...totalPerson, "60th": e.target.value})} />
+            </TotalPersonBox>
+          </tr>
+          }
           <tr>
             <td headers="회차">{count}회차</td><td headers="진행자">{consultant}</td><td headers="참가인원">{participants}</td><td headers="수료인원">{completion}</td><td headers="중도탈락">{participants-completion}</td>
             <PersonBox colSpan="6">
@@ -158,14 +203,14 @@ function Intro({title, date, day, count}){
             </PersonBox>
           </tr>
           <tr>
-            <td colSpan="2">누계</td><td></td><td></td><td></td>
+            <td colSpan="2">누계</td><td>{Number(totalParticipants)+Number(participants)}</td><td>{Number(totalCompletion)+Number(completion)}</td><td>{(Number(totalParticipants)+Number(participants))-(Number(totalCompletion)+Number(completion))}</td>
             <PersonBox2 colSpan="6">
-              <Person2 readOnly />
-              <Person2 readOnly />
-              <Person2 readOnly />
-              <Person2 readOnly />
-              <Person2 readOnly />
-              <Person2 readOnly />
+              <Person2 value={Number(totalPerson["20th"])+Number(person["20th"])} readOnly />
+              <Person2 value={Number(totalPerson["29th"])+Number(person["29th"])} readOnly />
+              <Person2 value={Number(totalPerson["39th"])+Number(person["39th"])} readOnly />
+              <Person2 value={Number(totalPerson["49th"])+Number(person["49th"])} readOnly />
+              <Person2 value={Number(totalPerson["59th"])+Number(person["59th"])} readOnly />
+              <Person2 value={Number(totalPerson["60th"])+Number(person["60th"])} readOnly />
             </PersonBox2>
           </tr>
         </tbody>
@@ -204,18 +249,19 @@ function Intro({title, date, day, count}){
       : title==="취업을 위한 나 이해하기"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div>자기 이해의 중요성에 대한 설명 후, 포괄적으로 나의 능력 및 강점을 생각해 메모하고 본 과정을 시작함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>“나는 무엇을 할 수 있을까?”라는 주제로 내가 잘하는 일, 내가 좋아하는 일 등 내가 즐기는 활동들과 내가 보유하고 있는 능력에 대해 구체적인 이야기를 서로 나누는 시간을 가짐.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>나를 표현하는 단어를 선정해 보고, 선정한 이유에 대해 구체적인 나의 이야기를 공유하고 나의 강점에 대해 작성함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="이력서, 자기소개서 작성하기"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div>수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div>유함.</div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div>좋은 이력서가 갖추어야 할 내용들을 정리하여 간략하게 설명을 진행함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>좋은 이력서를 이루는 3가지 요건은 첫째. 검토자, 곧 인사담당자의 마음을 이해하는 이력서, 두 번째는 자신의 경력 사항에 충실한 이력서, 세 번째는 양식이 보기 좋은 이력서라는 것을 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>자신의 역량과 이미지를 잘 표현해 낼 수 있는 이력서 양식은 면접으로 가는 결정에 중요한 영향을 미침을 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>자기소개서 항목별 작성법을 살펴보게 한 후 직무 키워드 중심으로 자기소개서를 작성하는 방법과 주의 사항을 안내 그리고 참여자들의 질문과 답변 시간 후 소감을 나누며 마무리함</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
@@ -225,33 +271,37 @@ function Intro({title, date, day, count}){
           <CharacterBox><div>❍</div><div>관점 전환을 위해, 최근 가장 많이 사용하는 말이나 고민 혹은 최근 후회되는 사례를 이야기할 수 있도록 하여 긍정적인 사고를 할 수 있도록 긍정언어로 변경하는 실습함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div>회복탄력성이란 무엇인지 알아보고, 주관적인 확인 및 체크리스트를 통한 회복탄력성을 진단, 동기부여를 위한 개개인의 방법에 대해 공유함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div>자신의 감정에 대해 인지하고 심상법을 설명함, 사고의 흐름에 대해 이해시키고, 생각의 오류를 인지시키고 수정할 수 있도록 설명함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>나의 인생의 10대 뉴스를 선정해 보고 각 사건에 대해 긍정적인 관점으로 전환해 봄.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="잘 살아온 내 인생, 앞으로는?"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div>신중년 세대가 공감할 수 있는 그림을 제시하여 맞추며 과거의 나를 회상하며 나의 삶 전반에 대해 떠올릴 수 있도록 퀴즈를 진행함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>지금까지 나의 삶에서 크고 작은 일들을 생각하며 내 인생의 10대 뉴스를 정리해 인생곡선 그래프를 그릴 수 있도록 활동함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>퇴직 후에 할 수 있는 일들과 시니어클럽을 통해 지역별 경력 경로에 대해 알아봄.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>앞으로 삶의 방향성을 생각하며 목표를 설정하고 오늘부터 해야 할 실천 계획을 만들어 봄.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="직장인을 위한 대화의 기술"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div>비합리적인 사고를 이해하고 보다 합리적인 사고를 위한 과정에서 20대, 30대, 40대, 50대 이상 연령층마다 사고의 차이를 서로 이해할 수 있는 시간을 가짐.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>시대적, 문화적, 개인적인 배경이 다른 사람들의 생각들을 이해할 수 있는 시간을 갖도록 함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>똑같은 상황에서 사고의 차이가 감정과 결과를 다르게 낼 수 있다는 것을 이해시킴.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>긍정적이고 합리적인 사고를 갖는 것이 얼마나 중요한지 인지시키고 구체적으로 방법에 대해 알아보도록 함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="합격을 부르는 면접전략"
       ?(
         <ContentContainer>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
-          <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div>면접 관련한 동영상 제공과 실제 사례를 통해 이해와 집중도를 높임.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>상황면접 사례질문의 경우, 특정 직군에 대해 준비한 참여자에게 피드백을 제공함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>면접에 관한 다양한 정보와 강의가 있는 사이트를 소개하고 적극적으로 활용해보도록 안내 및 권유함.</div></CharacterBox>
+          <CharacterBox><div>❍</div><div>경기도의 "잡아바"와 같이, 각 지자체 별 구직지원 사이트를 안내함.</div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
@@ -261,12 +311,14 @@ function Intro({title, date, day, count}){
           <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div></div></CharacterBox>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div><Character placeholder="한 줄 이내로 추가 입력하세요." /></div></CharacterBox>
         </ContentContainer>
       )
       : title==="MBTI를 통한 스마트한 직장 적응방법"
       ?(
         <ContentContainer>
+          <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div></div></CharacterBox>
           <CharacterBox><div>❍</div><div></div></CharacterBox>
